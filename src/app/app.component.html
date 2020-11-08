@@ -3,20 +3,20 @@
 
     <div class="result">
       <div class="result__percentage">
-        14
+        {{ percentage }}
       </div>
       <div class="result__description">
-        Can choose someone better...
+        {{ description }}
       </div>
     </div>
 
     <div class="names">
-      <input type="text" class="name-input" placeholder="First">
-      <input type="text" class="name-input" placeholder="Second">
+      <input type="text" class="name-input" placeholder="First" [formControl]="firstNameControl">
+      <input type="text" class="name-input" placeholder="Second" [formControl]="secondNameControl">
     </div>
 
     <div class="button-container">
-      <button class="btn-calculate">Calculate</button>
+      <button class="btn-calculate" (click)="onCalculate()">Calculate</button>
     </div>
   </div>
 </div>
