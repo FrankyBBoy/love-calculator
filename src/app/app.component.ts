@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   secondNameControl: FormControl;
 
   calculating = false;
+  calculated = false;
   percentage: number;
   description: string;
 
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit {
 
   onCalculate() {
     if (this.firstNameControl.valid && this.secondNameControl.valid) {
+      this.calculating = true;
 
       this.apiService.getPercentage(
         this.firstNameControl.value, 
@@ -37,6 +39,10 @@ export class AppComponent implements OnInit {
           error => {
             console.log('something went wrong...');
             console.log(error);
+          },
+          () => {
+            this.calculating = false;
+            this.calculated = true;
           });
     }
   }

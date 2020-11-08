@@ -1,13 +1,13 @@
 <div class="main-container">
   <div class="form-container">
 
-    <div class="result">
-      <div class="result__percentage">
-        {{ percentage }}
-      </div>
-      <div class="result__description">
-        {{ description }}
-      </div>
+    <div class="result" *ngIf="!calculating && calculated">
+      <div class="result__percentage">{{ percentage }}</div>
+      <div class="result__description">{{ description }}</div>
+    </div>
+
+    <div class="calculating" *ngIf="calculating">
+      <div class="calculating__text">Calculating...</div>
     </div>
 
     <div class="names">
